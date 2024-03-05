@@ -2,6 +2,12 @@
 Bash Command For Global Phased Octoploid Genome (GPOG)
 
 
+# Calculation of HER Hamming error rate (HER)
+```
+sh run.cal_HER.sh
+Note: The HER formula is: ∑i min{pi, mi} / ∑i (pi + mi)
+```
+
 # Trio Hi-C (Haplotype-specific reads)
 ```
 sh run.triohic.sh
