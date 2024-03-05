@@ -12,9 +12,11 @@ grep 'CL3' hifi.candidate_peaks.bed | awk '{print$1"\t"$2"\t"$3}' - > cen_candid
 seqtk subseq genome.fa cen_candidate.bed > cen_candidate.fa
 trf cen_candidate.fa 2 7 7 80 10 50 500 -m -f -d
 
-##Identification of the primary centromeric satellites of chromosome 1A
-grep '1A' *.dat > 1A.dat
-awk '{if($3>145)print}' 1A.dat | awk '{if($3<149)print}' | sort -n -k 4 - | tail -n 1 | awk '{print$14}' - > 1A.cen.fa
+##Identification of the primary centromeric satellites of chromosome 1A and 1B
+grep '2A' *.dat > 2A.dat
+awk '{if($3>145)print}' 2A.dat | awk '{if($3<149)print}' | sort -n -k 4 - | tail -n 1 | awk '{print$14}' - > 2A.cen.fa
+grep '2B' *.dat > 2B.dat
+awk '{if($3>145)print}' 2B.dat | awk '{if($3<149)print}' | sort -n -k 4 - | tail -n 1 | awk '{print$14}' - > 2B.cen.fa
 
 ##Calculation of genetic distances between primary centromeric satellites
 mkdir input && mv *.cen.fa input
